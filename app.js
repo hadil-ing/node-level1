@@ -1,3 +1,5 @@
+require('dotenv').config();
+const uri = process.env.MONGO_URI;
 const express = require('express')
 const app = express()
 const port = 3000
@@ -10,7 +12,7 @@ app.get('/', (req, res) => {
 
 
 mongoose
- .connect("mongodb+srv://jaouadihadil2004_db_user:hP5jLTVESr8nEyJq@cluster0.00cunyt.mongodb.net/")
+ .connect(uri)
  .then(()=>{app.listen(port, () => {
   console.log(`http://localhost:${port}/`);
 });})
